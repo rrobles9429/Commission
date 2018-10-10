@@ -22,16 +22,22 @@ class ViewController: UIViewController {
     }
     @IBAction func calculateOnTapped(_ sender: UIButton)
     {
-    getInput()
+    let commissionPay = getInput()
+    let totalPay = commissionPay + Double(basePay)
+    totalPayLabel.text = "Total Pay = $\(totalPay)"
     }
     func getInput() -> Double
     {
-        if let commissionPay = commissionPayTextField.text, let pay = Double(commissionPay){
-            print("Has Data and can be turned into integer")
-        }else{
-            print("No Data or can't turn into an integer")
+        if let commissionPay = commissionPayTextField.text, let pay = Double(commissionPay)
+        {
+            return pay
+            
         }
-    return 21.21
+        else
+        {
+            return 0
+        }
+
 }
 
     
